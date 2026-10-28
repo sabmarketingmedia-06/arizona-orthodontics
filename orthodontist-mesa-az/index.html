@@ -166,6 +166,8 @@ img { max-width:100%; }
   visibility: visible;
   transform: translateY(0);
 }
+/* Last menu (Locations) opens to the left so it never sticks out past the screen edge */
+.nav-links > li:last-child > .dropdown-menu { left: auto; right: 0; }
 /* Braces sub-dropdown appears to the LEFT */
 .braces-submenu {
   position: absolute;
@@ -1147,7 +1149,7 @@ function closeMobileNav(){
 <div class="page active" id="page-mesa">
 
   <!-- HERO -->
-  <div style="background:#f7faf8; padding:70px 60px 80px; display:flex; align-items:center; justify-content:space-between; gap:48px;">
+  <div style="background:#f7faf8; padding:70px 60px 80px; display:flex; align-items:center; justify-content:space-between; gap:48px; overflow:hidden;">
     <div style="flex:1; max-width:580px;">
       <h1 style="font-family:'Montserrat',sans-serif; font-size:40px; font-weight:800; color:#0f2b4a; line-height:1.2; margin-bottom:16px;">Your Affordable Orthodontist Mesa AZ Area</h1>
       <p style="font-family:'Montserrat',sans-serif; font-size:22px; font-weight:700; color:var(--green-dark); margin-bottom:20px;">Braces or Invisalign Starting At<br><span style="font-size:32px;">$89* PER MONTH</span></p>

@@ -166,6 +166,8 @@ img { max-width:100%; }
   visibility: visible;
   transform: translateY(0);
 }
+/* Last menu (Locations) opens to the left so it never sticks out past the screen edge */
+.nav-links > li:last-child > .dropdown-menu { left: auto; right: 0; }
 /* Braces sub-dropdown appears to the LEFT */
 .braces-submenu {
   position: absolute;
