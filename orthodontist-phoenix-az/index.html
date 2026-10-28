@@ -1049,7 +1049,7 @@ footer {
 </head>
 <body>
 <script>
-function showPage(id){var u={'home':'/','kids':'/orthodontist-for-kids/','adults':'/orthodontist-for-adults/','invisalign':'/invisalign/','doctor':'/meet-the-doctor/','mesa':'/orthodontist-mesa-az/','phoenix':'/orthodontist-phoenix-az/','braces':'/braces-for-kids/','braces-adults':'/braces-for-adults/','braces-cost':'/braces-cost/','colored-braces':'/colored-braces/','ahcccs':'/ahcccs-no-insurance/','espanol':'/espanol/','booking':'/free-consultation/','charm':'/charm-braces/','oral-surgery':'/oral-surgery/'};location.href=u[id]||'/';}
+function showPage(id){var u={'home':'/','kids':'/orthodontist-for-kids/','adults':'/orthodontist-for-adults/','invisalign':'/invisalign/','doctor':'/meet-the-doctor/','mesa':'/orthodontist-mesa-az/','phoenix':'/orthodontist-phoenix-az/','braces':'/braces-for-kids/','braces-adults':'/braces-for-adults/','braces-cost':'/braces-cost/','colored-braces':'/colored-braces/','ahcccs':'/ahcccs-no-insurance/','espanol':'/espanol/','booking':'/free-consultation/','charm':'/charm-braces/'};location.href=u[id]||'/';}
 function toggleMobileNav(){
   var nl=document.querySelector('.nav-links');
   var hb=document.getElementById('hamburger');
@@ -1089,7 +1089,6 @@ function closeMobileNav(){
   <div style="display:flex; gap:10px; align-items:center;">
     <a href="/charm-braces/" style="background:linear-gradient(135deg,#c8a94e,#b8943e); color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">Charm Braces</a>
     <a href="/ahcccs-no-insurance/" style="background:#c62828; color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">No Insurance</a>
-    <a href="/oral-surgery/" style="background:#0f2b4a; color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">Oral Surgery</a>
     <a href="/free-consultation/" class="free-consult-btn">Free Consultation</a>
   </div>
 </div>
@@ -1125,7 +1124,6 @@ function closeMobileNav(){
           </div>
         </div>
         <a href="/invisalign/">Invisalign</a>
-        <a href="/oral-surgery/">Oral Surgery</a>
       </div>
     </li>
     <li>
@@ -1314,18 +1312,12 @@ function closeMobileNav(){
       <h2 class="section-title">Find an Arizona Orthodontics Location Near You</h2>
       <div style="display:flex; gap:0; margin-top:28px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.08);">
         <div style="flex:0 0 320px; background:#f7faf8; padding:48px 36px; display:flex; flex-direction:column; justify-content:center;">
-          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span style="color:var(--green-mid); font-size:28px;">📍</span>
-            <span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Mesa AZ Office</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
-            <span style="color:var(--green-mid); font-size:28px;">📍</span>
-            <span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Phoenix AZ Office</span>
-          </div>
+          <button type="button" class="az-office" data-map="https://www.google.com/maps?q=Arizona+Orthodontics,+215+S+Power+Rd+%23101,+Mesa,+AZ+85206&output=embed" onclick="azMap(this)" aria-pressed="false" style="display:flex; align-items:flex-start; gap:12px; margin-bottom:10px; width:100%; text-align:left; background:transparent; border:2px solid transparent; border-radius:12px; padding:10px 12px; cursor:pointer; font:inherit;"><span style="color:var(--green-mid); font-size:28px; line-height:1;">📍</span><span><span style="display:block; font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Mesa AZ Office</span><span style="display:block; font-size:13px; color:var(--text-light); margin-top:2px;">215 S Power Rd #101, Mesa, AZ 85206</span></span></button>
+        <button type="button" class="az-office" data-map="https://www.google.com/maps?q=Arizona+Orthodontics,+6025+N+27th+Ave+%2325,+Phoenix,+AZ+85017&output=embed" onclick="azMap(this)" aria-pressed="true" style="display:flex; align-items:flex-start; gap:12px; margin-bottom:24px; width:100%; text-align:left; background:#ffffff; border:2px solid var(--teal); border-radius:12px; padding:10px 12px; cursor:pointer; font:inherit;"><span style="color:var(--green-mid); font-size:28px; line-height:1;">📍</span><span><span style="display:block; font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Phoenix AZ Office</span><span style="display:block; font-size:13px; color:var(--text-light); margin-top:2px;">6025 N 27th Ave #25, Phoenix, AZ 85017</span></span></button>
           <a href="/free-consultation/" class="hero-btn" style="text-align:center;">Schedule a Free Consultation</a>
         </div>
         <div style="flex:1; min-height:380px;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d220000!2d-111.84!3d33.46!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0; display:block;" allowfullscreen="" loading="lazy"></iframe>
+          <iframe class="az-map" title="Map of our office" src="https://www.google.com/maps?q=Arizona+Orthodontics,+6025+N+27th+Ave+%2325,+Phoenix,+AZ+85017&output=embed" width="100%" height="100%" style="border:0; display:block;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
   </div>
@@ -1384,5 +1376,6 @@ function closeMobileNav(){
 
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69e1577f663add2d0d04af56" data-source="WEB_USER"></script>
 
+<script>function azMap(b){var w=b.parentNode,f=w.parentNode.querySelector('iframe.az-map');w.querySelectorAll('.az-office').forEach(function(x){var on=x===b;x.setAttribute('aria-pressed',on);x.style.background=on?'#ffffff':'transparent';x.style.borderColor=on?'var(--teal)':'transparent';});if(f)f.src=b.getAttribute('data-map');}</script>
 </body>
 </html>
