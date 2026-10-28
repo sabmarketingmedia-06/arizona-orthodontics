@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Dr. Alejandra Fernandez | Arizona Orthodontics</title>
+<link rel="canonical" href="https://arizona-orthodontics.com/meet-the-doctor/">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #0d6e6e;
+  --green-mid: #1a8a8a;
+  --green-light: #4fb8b8;
+  --teal: #3aafa9;
+  --teal-light: #6ed4c8;
+  --gold: #c8a94e;
+  --gradient-bar: linear-gradient(90deg, #1a8a8a 0%, #2ca5a5 50%, #c8a94e 100%);
+  --gradient-hero: linear-gradient(160deg, #e8f5ec 0%, #d4edda 30%, #f0f7f2 60%, #eef6f0 100%);
+  --gradient-hero-circle: linear-gradient(135deg, #1a8a8a 0%, #0d6e6e 100%);
+  --gradient-btn: linear-gradient(135deg, #1a8a8a 0%, #2ca5a5 100%);
+  --white: #ffffff;
+  --off-white: #f7faf8;
+  --text-dark: #0f2b4a;
+  --text-body: #4a5e5e;
+  --text-light: #7a8e8e;
+  --border: #dce8e0;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Open Sans',sans-serif; color:var(--text-body); background:var(--white); -webkit-font-smoothing:antialiased; }
+img { max-width:100%; }
+
+/* ===== TOP ANNOUNCEMENT BAR ===== */
+.announcement-bar {
+  background: var(--gradient-bar);
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.announcement-bar p {
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.announcement-bar .start-now-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(255,255,255,0.6);
+  color: #fff;
+  padding: 7px 24px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.announcement-bar .start-now-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ===== UTILITY NAV (phone + free consultation) ===== */
+.utility-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  border-bottom: 1px solid #eef2f0;
+}
+.utility-phone {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+.utility-phone span { color: var(--text-light); font-weight: 400; }
+.free-consult-btn {
+  background: var(--gradient-btn);
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.free-consult-btn:hover { opacity: 0.9; }
+
+/* ===== MAIN NAV ===== */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 60px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-icon {
+  width: 48px;
+  height: 48px;
+}
+.logo-icon svg { width:48px; height:48px; }
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--text-dark);
+  line-height: 1.15;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  list-style: none;
+}
+.nav-links > li {
+  position: relative;
+}
+.nav-links a {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green-mid); }
+.nav-links .has-dropdown { display:flex; align-items:center; gap:4px; }
+.dropdown-arrow { font-size:10px; }
+
+/* Dropdown menus */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  border-radius: 0 0 8px 8px;
+  min-width: 220px;
+  padding: 8px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.2s;
+  z-index: 200;
+}
+.nav-links > li:hover > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+/* Braces sub-dropdown appears to the LEFT */
+.braces-submenu {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  left: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  border-radius: 0 0 8px 8px;
+  min-width: 220px;
+  padding: 8px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  z-index: 300;
+}
+.braces-parent-wrap:hover .braces-submenu {
+  opacity: 1;
+  visibility: visible;
+}
+.braces-submenu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.braces-submenu a:hover {
+  background: var(--off-white);
+  color: var(--green-mid);
+  padding-left: 24px;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: all 0.15s;
+}
+.dropdown-menu a:hover {
+  background: var(--off-white);
+  color: var(--green-mid);
+  padding-left: 24px;
+}
+
+.page { display:none; }
+.page.active { display:block; }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--gradient-hero);
+  padding: 70px 60px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 520px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,158,111,0.08), transparent 70%);
+}
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--green-dark);
+  line-height: 1.18;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.hero-btn {
+  display: inline-block;
+  background: var(--gradient-btn);
+  color: #fff;
+  padding: 15px 36px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(45,158,111,0.25);
+}
+.hero-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(45,158,111,0.35);
+}
+.hero-sub {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+.hero-photo {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  width: 400px;
+  height: 440px;
+}
+/* Gray arc behind */
+.hero-photo::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 28px solid rgba(200, 215, 208, 0.35);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(25deg);
+  z-index: 0;
+}
+/* Teal rectangle behind photo */
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 240px;
+  height: 300px;
+  background: #1a7e6a;
+  border-radius: 12px;
+  z-index: 1;
+}
+.hero-photo-circle {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  margin-left: 10px;
+  box-shadow: 0 12px 40px rgba(26,110,78,0.15);
+}
+.hero-photo-circle .dr-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px;
+  background: var(--gradient-hero-circle);
+}
+.hero-photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+/* ===== BADGES ROW ===== */
+.badges-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  margin: -50px auto 0;
+  position: relative;
+  z-index: 3;
+  padding: 0 60px;
+}
+.badge-card {
+  background: var(--green-dark);
+  padding: 30px 28px;
+  text-align: center;
+  border: none;
+  transition: box-shadow 0.2s;
+}
+.badge-card:first-child { border-radius: 12px 0 0 12px; }
+.badge-card:last-child { border-radius: 0 12px 12px 0; }
+.badge-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+.badge-card .badge-emoji { font-size: 28px; margin-bottom: 10px; }
+.badge-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.badge-card p {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.55;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.content-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 60px;
+}
+.content-section.bg-light { background: var(--off-white); max-width:100%; }
+.content-section.bg-light .section-inner { max-width:1100px; margin:0 auto; }
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #0f2b4a;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.section-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+.section-body {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+.section-body ul {
+  margin: 16px 0 16px 22px;
+}
+.section-body li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: var(--gradient-btn);
+  padding: 52px 60px;
+  text-align: center;
+}
+.cta-banner h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.35;
+}
+.cta-banner p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 24px;
+}
+.cta-banner .btn-white {
+  display: inline-block;
+  background: #fff;
+  color: var(--green-dark);
+  padding: 14px 36px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.cta-banner .btn-white:hover { transform:translateY(-1px); }
+
+/* ===== CARDS GRID ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.info-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.info-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+.info-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+.info-card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ===== ISSUES GRID ===== */
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.issue-chip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 16px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-dark);
+  transition: all 0.2s;
+}
+.issue-chip:hover {
+  background: var(--off-white);
+  border-color: var(--green-mid);
+}
+
+/* ===== DR SECTION ===== */
+.dr-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+.dr-img-placeholder {
+  width: 280px;
+  height: 340px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--green-light), var(--teal));
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  font-weight: 500;
+}
+.dr-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 14px;
+}
+.dr-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 14px;
+}
+
+/* ===== VISIT LIST ===== */
+.visit-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+.visit-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #eef2f0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+.visit-list li .check {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+/* Testimonial carousel */
+.review-track {
+  display: flex;
+  gap: 24px;
+  animation: scrollReviews 20s linear infinite;
+  width: max-content;
+}
+.review-track:hover { animation-play-state: paused; }
+@keyframes scrollReviews {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.review-carousel {
+  overflow: hidden;
+  margin-top: 32px;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+.testimonial-card {
+  background: linear-gradient(160deg, #1a7e6a 0%, #1a6e5e 100%);
+  border-radius: 14px;
+  padding: 32px 28px;
+  min-width: 360px;
+  max-width: 360px;
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+}
+.testimonial-card .review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.testimonial-card .reviewer-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+.testimonial-card .reviewer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.testimonial-card .stars {
+  color: #f4b740;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.testimonial-card .review-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+  margin-bottom: 16px;
+}
+.testimonial-card .review-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.92);
+  font-style: normal;
+}
+
+/* ===== TREATMENT ITEMS ===== */
+.treatment-list { margin-top: 24px; }
+.treatment-item {
+  padding: 22px 0;
+  border-bottom: 1px solid #eef2f0;
+}
+.treatment-item h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+.treatment-item p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #1a5c5a;
+  padding: 56px 60px 32px;
+  color: rgba(255,255,255,0.65);
+}
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-col h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.footer-col p, .footer-col a {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  display: block;
+}
+.footer-col a:hover { color: var(--teal-light); }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ===== HAMBURGER MENU ===== */
+.mobile-close-btn { display: none; }
+.hamburger {
+  display: none;
+  background: none;
+  border: 2px solid var(--teal);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 10px 9px;
+  z-index: 200;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+  touch-action: manipulation;
+}
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3.5px;
+  margin: 4px 0;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+/* When menu is open, hide the hamburger button entirely — close button is inside sidebar */
+.hamburger.active { opacity: 0; pointer-events: none; }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px) {
+  /* --- Hamburger visible --- */
+  .hamburger { display: block; flex-shrink: 0; position: relative; }
+
+  /* --- Nav links become slide-out sidebar --- */
+  .nav-links {
+    display: none !important;
+    flex-direction: column !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    padding: 16px 0 32px;
+    z-index: 160;
+    gap: 0 !important;
+    overflow-y: auto;
+  }
+  /* Close button at top of sidebar */
+  .mobile-close-btn {
+    display: block !important;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 8px 20px 16px;
+    line-height: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+  }
+  .nav-links.open {
+    display: flex !important;
+  }
+  .nav-links > li {
+    border-bottom: 1px solid #eef2f0;
+  }
+  .nav-links a, .nav-links .has-dropdown {
+    padding: 14px 24px !important;
+    display: block !important;
+    font-size: 15px !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+    touch-action: manipulation;
+    position: relative;
+    z-index: 170;
+  }
+
+  /* Dropdown menus in mobile sidebar — always expanded */
+  .dropdown-menu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-top: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-width: auto !important;
+    background: #f7faf8 !important;
+    display: block !important;
+  }
+  .dropdown-menu a {
+    padding: 12px 24px 12px 40px !important;
+    font-size: 14px !important;
+  }
+  .braces-submenu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-width: auto !important;
+    background: #eef6f0 !important;
+    display: block !important;
+  }
+  .braces-submenu a {
+    padding: 10px 24px 10px 56px !important;
+    font-size: 13px !important;
+  }
+  .braces-parent-wrap { position: static !important; }
+
+  /* Mobile nav overlay */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 140;
+  }
+  .nav-overlay.active { display: block; }
+
+  /* --- Main Nav layout --- */
+  .main-nav {
+    padding: 12px 16px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  /* --- Announcement bar --- */
+  .announcement-bar {
+    padding: 10px 16px;
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center;
+  }
+  .announcement-bar p { font-size: 12px; line-height: 1.4; }
+  .announcement-bar .start-now-btn { font-size: 12px; padding: 6px 18px; }
+
+  /* --- Utility nav — stack buttons --- */
+  .utility-nav {
+    padding: 8px 16px;
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center;
+    align-items: center !important;
+  }
+  .utility-nav > div[style] {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+  .utility-nav .free-consult-btn { padding: 8px 16px !important; font-size: 12px !important; }
+  .utility-nav a[style*="padding:9px"] {
+    padding: 7px 12px !important;
+    font-size: 11px !important;
+  }
+  .utility-phone { font-size: 13px; }
+
+  /* --- Logo --- */
+  .logo-area img { height: 36px !important; width: auto !important; }
+  .logo-area div[style*="font-size:9.5px"] { font-size: 8px !important; }
+
+  /* --- Hero section (class-based homepage) --- */
+  .hero {
+    flex-direction: column !important;
+    padding: 40px 20px 48px !important;
+    text-align: center;
+  }
+  .hero h1 { font-size: 28px !important; }
+  .hero-content { max-width: 100% !important; }
+  .hero-photo { width: 240px !important; height: 280px !important; margin: 0 auto !important; }
+  .hero-photo::before { width: 220px !important; height: 220px !important; border-width: 16px !important; right: 0 !important; }
+  .hero-photo::after { width: 160px !important; height: 200px !important; right: 10px !important; }
+  .hero-photo-circle { width: 210px !important; height: 210px !important; margin-top: 24px !important; margin-left: 0 !important; }
+
+  /* --- Inner page hero sections (inline-styled) --- */
+  div[style*="display:flex"][style*="padding:70px"] {
+    flex-direction: column !important;
+    padding: 40px 20px !important;
+    text-align: center;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] {
+    max-width: 100% !important;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] h1 {
+    font-size: 26px !important;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] p[style*="font-size:22px"] {
+    font-size: 17px !important;
+  }
+
+  /* --- Inline flex containers: STACK on mobile --- */
+  div[style*="display:flex"][style*="gap:48px"],
+  div[style*="display:flex"][style*="gap:40px"],
+  div[style*="display:flex"][style*="gap:36px"],
+  div[style*="display:flex"][style*="gap:32px"],
+  div[style*="display:flex; align-items:center; justify-content:space-between"] {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  /* --- Map + hours sections --- */
+  div[style*="flex:1.3"],
+  div[style*="flex:0.7"],
+  div[style*="flex:1.2"],
+  div[style*="flex:0.8"] {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  /* --- Large heading overrides --- */
+  h1[style*="font-size:40px"],
+  h1[style*="font-size:42px"],
+  h1[style*="font-size:44px"] { font-size: 26px !important; }
+  h2[style*="font-size:36px"],
+  h2[style*="font-size:34px"],
+  h2[style*="font-size:32px"] { font-size: 22px !important; }
+  h2[style*="font-size:30px"],
+  h2[style*="font-size:28px"] { font-size: 20px !important; }
+  h3[style*="font-size:28px"],
+  h3[style*="font-size:26px"] { font-size: 18px !important; }
+  span[style*="font-size:32px"] { font-size: 24px !important; }
+
+  /* --- Badges row --- */
+  .badges-row { grid-template-columns: 1fr !important; padding: 0 16px !important; margin-top: -24px; }
+  .badge-card:first-child { border-radius: 12px 12px 0 0 !important; }
+  .badge-card:last-child { border-radius: 0 0 12px 12px !important; }
+  .badge-card { border-radius: 0 !important; }
+
+  /* --- Cards/grids — single column --- */
+  .cards-grid { grid-template-columns: 1fr !important; }
+  div[style*="grid-template-columns:repeat(3"],
+  div[style*="grid-template-columns:repeat(2"],
+  div[style*="display:grid"][style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  .testimonials-grid { grid-template-columns: 1fr !important; }
+
+  /* --- Review carousel on mobile --- */
+  .review-carousel {
+    margin-top: 20px;
+  }
+  .review-track {
+    gap: 16px !important;
+    animation-duration: 25s !important;
+  }
+  .testimonial-card {
+    min-width: 280px !important;
+    max-width: 280px !important;
+    padding: 24px 20px !important;
+  }
+  .testimonial-card .reviewer-name { font-size: 16px !important; }
+  .testimonial-card .reviewer-avatar { width: 40px !important; height: 40px !important; font-size: 17px !important; }
+  .testimonial-card .stars { font-size: 16px !important; }
+  .testimonial-card .review-text { font-size: 14px !important; line-height: 1.6 !important; }
+
+  /* --- Dr row --- */
+  .dr-row { flex-direction: column !important; text-align: center; }
+  .dr-img-placeholder { width: 100% !important; max-width: 280px; margin: 0 auto !important; }
+
+  /* --- Issues grid --- */
+  .issues-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* --- Content section padding --- */
+  .content-section { padding: 36px 16px !important; }
+  div[style*="padding:64px 60px"],
+  div[style*="padding:70px 60px"],
+  div[style*="padding:52px 60px"] {
+    padding: 36px 16px !important;
+  }
+
+  /* --- CTA banners --- */
+  .cta-banner { padding: 36px 16px !important; }
+  .cta-banner h2 { font-size: 20px !important; }
+
+  /* --- Footer --- */
+  footer { padding: 40px 16px 24px !important; }
+  .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* --- Images — scale down --- */
+  img[style*="width:280px"],
+  img[style*="width:320px"] {
+    width: 100% !important;
+    max-width: 260px !important;
+    height: auto !important;
+  }
+  img[style*="height:350px"],
+  img[style*="height:400px"] {
+    height: auto !important;
+  }
+  div[style*="width:320px"][style*="height:380px"],
+  div[style*="width:300px"][style*="height:360px"] {
+    width: 240px !important;
+    height: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  /* --- Booking iframe --- */
+  iframe[style*="height:700px"],
+  iframe[height="700"] {
+    height: 550px !important;
+  }
+
+  /* --- Review carousel --- */
+  /* review-track handled above with carousel block */
+
+  /* --- Section titles --- */
+  .section-title { font-size: 24px !important; }
+  .section-subtitle { font-size: 15px !important; }
+
+  /* --- Inline padded divs --- */
+  div[style*="padding:40px 60px"] { padding: 28px 16px !important; }
+  div[style*="padding:48px 60px"] { padding: 32px 16px !important; }
+  div[style*="padding:56px 60px"] { padding: 36px 16px !important; }
+
+  /* --- GHL chat widget --- */
+  #chat-widget-container { bottom: 8px !important; right: 8px !important; }
+}
+
+/* Extra small screens */
+@media(max-width:480px) {
+  .hero h1 { font-size: 22px !important; }
+  h1[style*="font-size"] { font-size: 22px !important; }
+  h2[style*="font-size"] { font-size: 18px !important; }
+  .hero-photo { width: 200px !important; height: 240px !important; }
+  .hero-photo-circle { width: 180px !important; height: 180px !important; }
+  .hero-photo::before { width: 180px !important; height: 180px !important; }
+  .hero-photo::after { width: 140px !important; height: 170px !important; }
+  .issues-grid { grid-template-columns: 1fr !important; }
+  .announcement-bar p { font-size: 11px; }
+  .testimonial-card { min-width: 240px !important; max-width: 240px !important; padding: 20px 16px !important; }
+  .testimonial-card .review-text { font-size: 13px !important; }
+  .badge-card { padding: 20px 16px !important; }
+  .utility-nav a[style*="padding:9px"] { font-size: 10px !important; padding: 6px 10px !important; }
+}</style>
+</head>
+<body>
+<script>
+function showPage(id){var u={'home':'/','kids':'/orthodontist-for-kids/','adults':'/orthodontist-for-adults/','invisalign':'/invisalign/','doctor':'/meet-the-doctor/','mesa':'/orthodontist-mesa-az/','phoenix':'/orthodontist-phoenix-az/','braces':'/braces-for-kids/','braces-adults':'/braces-for-adults/','braces-cost':'/braces-cost/','colored-braces':'/colored-braces/','ahcccs':'/ahcccs-no-insurance/','espanol':'/espanol/','booking':'/free-consultation/','charm':'/charm-braces/','oral-surgery':'/oral-surgery/'};location.href=u[id]||'/';}
+function toggleMobileNav(){
+  var nl=document.querySelector('.nav-links');
+  var hb=document.getElementById('hamburger');
+  var ov=document.getElementById('navOverlay');
+  if(!nl||!hb||!ov) return;
+  var opening = !nl.classList.contains('open');
+  if(opening){
+    nl.classList.add('open');
+    hb.classList.add('active');
+    ov.classList.add('active');
+    document.body.style.overflow='hidden';
+  } else {
+    closeMobileNav();
+  }
+}
+function closeMobileNav(){
+  var nl=document.querySelector('.nav-links');
+  var hb=document.getElementById('hamburger');
+  var ov=document.getElementById('navOverlay');
+  if(nl)nl.classList.remove('open');
+  if(hb)hb.classList.remove('active');
+  if(ov)ov.classList.remove('active');
+  document.body.style.overflow='';
+}
+</script>
+
+
+<!-- ===== ANNOUNCEMENT BAR — Updated #1 ===== -->
+<div class="announcement-bar">
+  <p>Free Consultation, Includes X-Rays, Full Exam, 3D Scan & Treatment Plan (a $300+ Value)</p>
+  <a href="/free-consultation/" class="start-now-btn">Start Now</a>
+</div>
+
+<!-- ===== UTILITY NAV — Updated #21 ===== -->
+<div class="utility-nav">
+  <div class="utility-phone"><span>Call or text:</span> (520) 630-2022</div>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <a href="/charm-braces/" style="background:linear-gradient(135deg,#c8a94e,#b8943e); color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">Charm Braces</a>
+    <a href="/ahcccs-no-insurance/" style="background:#c62828; color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">No Insurance</a>
+    <a href="/oral-surgery/" style="background:#0f2b4a; color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">Oral Surgery</a>
+    <a href="/free-consultation/" class="free-consult-btn">Free Consultation</a>
+  </div>
+</div>
+
+<!-- ===== MAIN NAV — Updated #22 ===== -->
+<nav class="main-nav">
+  <div class="logo-area" style="cursor:pointer;" onclick="location.href='/'">
+    <img src="data:image/jpeg;base64,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" alt="Arizona Orthodontics & Oral Surgery" style="height:44px; width:auto;"><div style="font-family:'Montserrat',sans-serif; font-size:9.5px; font-weight:700; color:#1a8a8a; letter-spacing:2.5px; text-transform:uppercase; margin-top:2px; text-align:center;">& Oral Surgery</div>
+  </div>
+  <ul class="nav-links">
+    <li style="list-style:none;border-bottom:1px solid #eef2f0;"><button class="mobile-close-btn" onclick="closeMobileNav()" aria-label="Close menu">✕</button></li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">About Us <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/meet-the-doctor/">Meet The Doctor</a>
+        <a href="/meet-the-doctor/">Testimonials</a>
+        <a href="/ahcccs-no-insurance/">AHCCCS / No Insurance</a>
+        <a href="/espanol/">Español</a>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">Services <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/orthodontist-for-kids/">Orthodontist for Kids</a>
+        <a href="/orthodontist-for-adults/">Orthodontist for Adults</a>
+        <div class="braces-parent-wrap" style="position:relative;">
+          <a href="/braces-for-kids/" style="background:var(--teal); color:#fff; font-weight:700; display:block; padding:10px 20px;">Braces ›</a>
+          <div class="braces-submenu">
+            <a href="/braces-for-kids/">Braces For Kids</a>
+            <a href="/braces-for-adults/">Braces For Adults</a>
+            <a href="/braces-cost/">Dental Braces Cost</a>
+            <a href="/colored-braces/">Colored Braces</a>
+            <a href="/charm-braces/">CHARM™ Braces</a>
+          </div>
+        </div>
+        <a href="/invisalign/">Invisalign</a>
+        <a href="/oral-surgery/">Oral Surgery</a>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">Locations <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/orthodontist-mesa-az/">Mesa Office</a>
+        <a href="/orthodontist-phoenix-az/">Phoenix Office</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
+
+
+<!-- ================================================================ -->
+<!--                        HOMEPAGE                                  -->
+<!-- ================================================================ -->
+<div class="page active" id="page-doctor">
+
+  <!-- HERO — Dr. Fernandez intro -->
+  <div class="hero" style="min-height:auto; padding:60px 60px 70px;">
+    <div class="hero-content" style="max-width:560px;">
+      <p style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--teal); margin-bottom:12px;">Meet The Doctor</p>
+      <h1 style="font-size:38px; margin-bottom:8px;">Meet Dr. Alejandra Fernandez</h1>
+      <p style="font-size:16px; color:var(--text-light); font-weight:500; margin-bottom:28px;">Orthodontist located in Mesa and Phoenix AZ</p>
+      <div style="background:var(--off-white); border-left:4px solid var(--green-mid); border-radius:0 10px 10px 0; padding:24px 28px; margin-bottom:28px;">
+        <p style="font-size:15.5px; font-style:italic; color:var(--text-dark); line-height:1.7;">"Whether you're bringing in your child or coming in yourself, I'm here to support each patient's smile transformation with care that's tailored to their needs."</p>
+        <p style="font-size:14px; font-weight:700; color:var(--green-dark); margin-top:12px;">— Dr. Alejandra Fernandez</p>
+      </div>
+      <div class="section-body">
+        <p>With over fifteen years of experience, Dr. Fernandez provides personalized orthodontic care for individuals ages 7 and older. Born in Arizona and fluent in both English and Spanish, she is dedicated to delivering care that is welcoming and patient-centered.</p>
+        <br>
+        <p>Outside the office, she enjoys paddleboarding, spending time outdoors with her dogs, and being with her family.</p>
+      </div>
+      <br>
+      <a href="/free-consultation/" class="hero-btn">Schedule Your Free Consultation</a>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-circle">
+        <img src="data:image/jpeg;base64,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" alt="Dr. Alejandra Fernandez" style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+    </div>
+  </div>
+
+  <!-- A BIT MORE ABOUT -->
+  <div class="content-section">
+    <p style="font-family:'Montserrat',sans-serif; font-size:14px; font-weight:600; color:var(--teal); margin-bottom:6px;">Dr. Alejandra Fernandez enjoys being the go-to orthodontist in Mesa and Phoenix AZ</p>
+    <h2 class="section-title">A Bit More About Dr. Alejandra Fernandez</h2>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:36px; margin-top:36px;">
+
+      <!-- Clinical Expertise -->
+      <div style="background:var(--off-white); border-radius:14px; padding:36px 32px; border:1px solid var(--border);">
+        <div style="width:48px; height:48px; border-radius:12px; background:var(--gradient-btn); display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+          <span style="color:#fff; font-size:22px;">🦷</span>
+        </div>
+        <h3 style="font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; color:var(--green-dark); margin-bottom:14px;">Clinical Expertise</h3>
+        <p style="font-size:15px; line-height:1.7; color:var(--text-body); margin-bottom:16px;">Dr. Fernandez offers a range of orthodontic services, including:</p>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); font-size:14.5px; color:var(--text-body);">
+            <span style="width:8px; height:8px; border-radius:50%; background:var(--green-mid); flex-shrink:0;"></span>
+            Traditional braces
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); font-size:14.5px; color:var(--text-body);">
+            <span style="width:8px; height:8px; border-radius:50%; background:var(--green-mid); flex-shrink:0;"></span>
+            Invisalign® clear aligners
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); font-size:14.5px; color:var(--text-body);">
+            <span style="width:8px; height:8px; border-radius:50%; background:var(--green-mid); flex-shrink:0;"></span>
+            Early treatment for children ages 7+
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; padding:10px 0; font-size:14.5px; color:var(--text-body);">
+            <span style="width:8px; height:8px; border-radius:50%; background:var(--green-mid); flex-shrink:0;"></span>
+            Comprehensive orthodontic care for teens and adults
+          </li>
+        </ul>
+      </div>
+
+      <!-- Education -->
+      <div style="background:var(--off-white); border-radius:14px; padding:36px 32px; border:1px solid var(--border);">
+        <div style="width:48px; height:48px; border-radius:12px; background:var(--gradient-btn); display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+          <span style="color:#fff; font-size:22px;">🎓</span>
+        </div>
+        <h3 style="font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; color:var(--green-dark); margin-bottom:14px;">Education and Training</h3>
+        <p style="font-size:15px; line-height:1.8; color:var(--text-body);">Dr. Fernandez earned her Doctor of Dental Medicine from Harvard School of Dental Medicine and completed her orthodontic specialty training at the University of Puerto Rico.</p>
+        <br>
+        <p style="font-size:15px; line-height:1.8; color:var(--text-body);">Her research in craniofacial abnormalities and early orthodontic intervention has shaped her approach to creating treatment plans that support optimal function and aesthetics.</p>
+        <br>
+        <p style="font-size:15px; line-height:1.8; color:var(--text-body);">She is a member of the American Association of Orthodontists and stays up to date with the latest advancements in the field.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="content-section bg-light">
+    <div class="section-inner">
+      <p style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--teal); margin-bottom:6px;">Patient Reviews</p>
+      <h2 class="section-title">What Our Patients Treated By Your Orthodontist Phoenix Are Saying...</h2>
+    <div class="review-carousel">
+      <div class="review-track">
+        <div class="testimonial-card">
+          <div class="review-header">
+            <div class="reviewer-name">F M</div>
+            <div class="reviewer-avatar" style="background:#2962a8;">F</div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="review-divider"></div>
+          <p class="review-text">This is the best orthodontist office I have been too. Clean, bright, friendly! So glad to have found this place! Would definitely recommend it to anyone looking for an orthodontist.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="review-header">
+            <div class="reviewer-name">Zain Khakwani</div>
+            <div class="reviewer-avatar" style="background:#7b1fa2;">Z</div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="review-divider"></div>
+          <p class="review-text">Excellent care, brand new office, works highly recommend</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="review-header">
+            <div class="reviewer-name">Anwar Abdul-Nabi</div>
+            <div class="reviewer-avatar" style="background:#455a64;">A</div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="review-divider"></div>
+          <p class="review-text">Excellent service! Highly recommend</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="review-header">
+            <div class="reviewer-name">F M</div>
+            <div class="reviewer-avatar" style="background:#2962a8;">F</div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="review-divider"></div>
+          <p class="review-text">This is the best orthodontist office I have been too. Clean, bright, friendly! So glad to have found this place! Would definitely recommend it to anyone looking for an orthodontist.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="review-header">
+            <div class="reviewer-name">Zain Khakwani</div>
+            <div class="reviewer-avatar" style="background:#7b1fa2;">Z</div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="review-divider"></div>
+          <p class="review-text">Excellent care, brand new office, works highly recommend</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="review-header">
+            <div class="reviewer-name">Anwar Abdul-Nabi</div>
+            <div class="reviewer-avatar" style="background:#455a64;">A</div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="review-divider"></div>
+          <p class="review-text">Excellent service! Highly recommend</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- LOCATIONS -->
+  <div class="content-section">
+    <h2 class="section-title">Find an Arizona Orthodontics Location Near You</h2>
+    <div style="display:flex; gap:0; margin-top:28px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+      <div style="flex:0 0 320px; background:#f7faf8; padding:48px 36px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <span style="color:var(--green-mid); font-size:28px;">📍</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Mesa AZ Office</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
+          <span style="color:var(--green-mid); font-size:28px;">📍</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Phoenix AZ Office</span>
+        </div>
+        <a href="/free-consultation/" class="hero-btn" style="text-align:center;">Schedule a Free Consultation</a>
+      </div>
+      <div style="flex:1; min-height:380px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d220000!2d-111.84!3d33.46!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0; display:block;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE CTA -->
+  <div class="cta-banner">
+    <h2>Schedule a Free Consultation</h2>
+    <p>Call or text: (520) 630-2022</p>
+    <div style="display:flex; gap:16px; justify-content:center; margin-top:8px;">
+      <a href="/free-consultation/" class="btn-white">Schedule Now</a>
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:24px;">
+      <a href="#" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:20px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:20px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- ================================================================ -->
+<!--                    MESA AZ OFFICE                                -->
+<!-- ================================================================ -->
+<footer>
+  <div class="footer-grid" style="grid-template-columns:1.2fr 1fr 1fr 1fr;">
+    <div class="footer-col">
+      <h4>Take the Next Step</h4>
+      <a href="/free-consultation/">Appointment Request</a>
+      <a href="/free-consultation/">Contact Us</a>
+      <a href="/orthodontist-mesa-az/">Find A Location</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="/meet-the-doctor/">Testimonials</a>
+      <a href="/orthodontist-mesa-az/">Find A Location</a>
+    </div>
+    <div class="footer-col">
+      <h4>Learn More</h4>
+      <a href="/orthodontist-for-kids/">Braces For Kids</a>
+      <a href="/braces-for-adults/">Braces For Adults</a>
+      <a href="/invisalign/">Invisalign</a>
+    </div>
+    <div class="footer-col">
+      <h4>Locations</h4>
+      <a href="/orthodontist-mesa-az/">Mesa Office</a>
+      <a href="/orthodontist-phoenix-az/">Phoenix Office</a>
+      <br>
+      <a href="#" style="font-size:12px;" onclick="return false;">Privacy Policy</a>
+      <a href="#" style="font-size:12px;" onclick="return false;">Terms & Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">Arizona Orthodontics © 2026 All Rights Reserved – Website by OrthoBoost</div>
+</footer>
+
+
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69e1577f663add2d0d04af56" data-source="WEB_USER"></script>
+
+</body>
+</html>

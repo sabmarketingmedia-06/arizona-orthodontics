@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHARM™ Braces | Arizona Orthodontics</title>
+<link rel="canonical" href="https://arizona-orthodontics.com/charm-braces/">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #0d6e6e;
+  --green-mid: #1a8a8a;
+  --green-light: #4fb8b8;
+  --teal: #3aafa9;
+  --teal-light: #6ed4c8;
+  --gold: #c8a94e;
+  --gradient-bar: linear-gradient(90deg, #1a8a8a 0%, #2ca5a5 50%, #c8a94e 100%);
+  --gradient-hero: linear-gradient(160deg, #e8f5ec 0%, #d4edda 30%, #f0f7f2 60%, #eef6f0 100%);
+  --gradient-hero-circle: linear-gradient(135deg, #1a8a8a 0%, #0d6e6e 100%);
+  --gradient-btn: linear-gradient(135deg, #1a8a8a 0%, #2ca5a5 100%);
+  --white: #ffffff;
+  --off-white: #f7faf8;
+  --text-dark: #0f2b4a;
+  --text-body: #4a5e5e;
+  --text-light: #7a8e8e;
+  --border: #dce8e0;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Open Sans',sans-serif; color:var(--text-body); background:var(--white); -webkit-font-smoothing:antialiased; }
+img { max-width:100%; }
+
+/* ===== TOP ANNOUNCEMENT BAR ===== */
+.announcement-bar {
+  background: var(--gradient-bar);
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.announcement-bar p {
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.announcement-bar .start-now-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(255,255,255,0.6);
+  color: #fff;
+  padding: 7px 24px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.announcement-bar .start-now-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ===== UTILITY NAV (phone + free consultation) ===== */
+.utility-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  border-bottom: 1px solid #eef2f0;
+}
+.utility-phone {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+.utility-phone span { color: var(--text-light); font-weight: 400; }
+.free-consult-btn {
+  background: var(--gradient-btn);
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.free-consult-btn:hover { opacity: 0.9; }
+
+/* ===== MAIN NAV ===== */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 60px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-icon {
+  width: 48px;
+  height: 48px;
+}
+.logo-icon svg { width:48px; height:48px; }
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--text-dark);
+  line-height: 1.15;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  list-style: none;
+}
+.nav-links > li {
+  position: relative;
+}
+.nav-links a {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green-mid); }
+.nav-links .has-dropdown { display:flex; align-items:center; gap:4px; }
+.dropdown-arrow { font-size:10px; }
+
+/* Dropdown menus */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  border-radius: 0 0 8px 8px;
+  min-width: 220px;
+  padding: 8px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.2s;
+  z-index: 200;
+}
+.nav-links > li:hover > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+/* Braces sub-dropdown appears to the LEFT */
+.braces-submenu {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  left: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  border-radius: 0 0 8px 8px;
+  min-width: 220px;
+  padding: 8px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  z-index: 300;
+}
+.braces-parent-wrap:hover .braces-submenu {
+  opacity: 1;
+  visibility: visible;
+}
+.braces-submenu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.braces-submenu a:hover {
+  background: var(--off-white);
+  color: var(--green-mid);
+  padding-left: 24px;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: all 0.15s;
+}
+.dropdown-menu a:hover {
+  background: var(--off-white);
+  color: var(--green-mid);
+  padding-left: 24px;
+}
+
+.page { display:none; }
+.page.active { display:block; }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--gradient-hero);
+  padding: 70px 60px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 520px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,158,111,0.08), transparent 70%);
+}
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--green-dark);
+  line-height: 1.18;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.hero-btn {
+  display: inline-block;
+  background: var(--gradient-btn);
+  color: #fff;
+  padding: 15px 36px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(45,158,111,0.25);
+}
+.hero-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(45,158,111,0.35);
+}
+.hero-sub {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+.hero-photo {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  width: 400px;
+  height: 440px;
+}
+/* Gray arc behind */
+.hero-photo::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 28px solid rgba(200, 215, 208, 0.35);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(25deg);
+  z-index: 0;
+}
+/* Teal rectangle behind photo */
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 240px;
+  height: 300px;
+  background: #1a7e6a;
+  border-radius: 12px;
+  z-index: 1;
+}
+.hero-photo-circle {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  margin-left: 10px;
+  box-shadow: 0 12px 40px rgba(26,110,78,0.15);
+}
+.hero-photo-circle .dr-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px;
+  background: var(--gradient-hero-circle);
+}
+.hero-photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+/* ===== BADGES ROW ===== */
+.badges-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  margin: -50px auto 0;
+  position: relative;
+  z-index: 3;
+  padding: 0 60px;
+}
+.badge-card {
+  background: var(--green-dark);
+  padding: 30px 28px;
+  text-align: center;
+  border: none;
+  transition: box-shadow 0.2s;
+}
+.badge-card:first-child { border-radius: 12px 0 0 12px; }
+.badge-card:last-child { border-radius: 0 12px 12px 0; }
+.badge-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+.badge-card .badge-emoji { font-size: 28px; margin-bottom: 10px; }
+.badge-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.badge-card p {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.55;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.content-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 60px;
+}
+.content-section.bg-light { background: var(--off-white); max-width:100%; }
+.content-section.bg-light .section-inner { max-width:1100px; margin:0 auto; }
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #0f2b4a;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.section-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+.section-body {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+.section-body ul {
+  margin: 16px 0 16px 22px;
+}
+.section-body li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: var(--gradient-btn);
+  padding: 52px 60px;
+  text-align: center;
+}
+.cta-banner h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.35;
+}
+.cta-banner p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 24px;
+}
+.cta-banner .btn-white {
+  display: inline-block;
+  background: #fff;
+  color: var(--green-dark);
+  padding: 14px 36px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.cta-banner .btn-white:hover { transform:translateY(-1px); }
+
+/* ===== CARDS GRID ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.info-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.info-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+.info-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+.info-card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ===== ISSUES GRID ===== */
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.issue-chip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 16px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-dark);
+  transition: all 0.2s;
+}
+.issue-chip:hover {
+  background: var(--off-white);
+  border-color: var(--green-mid);
+}
+
+/* ===== DR SECTION ===== */
+.dr-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+.dr-img-placeholder {
+  width: 280px;
+  height: 340px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--green-light), var(--teal));
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  font-weight: 500;
+}
+.dr-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 14px;
+}
+.dr-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 14px;
+}
+
+/* ===== VISIT LIST ===== */
+.visit-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+.visit-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #eef2f0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+.visit-list li .check {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+/* Testimonial carousel */
+.review-track {
+  display: flex;
+  gap: 24px;
+  animation: scrollReviews 20s linear infinite;
+  width: max-content;
+}
+.review-track:hover { animation-play-state: paused; }
+@keyframes scrollReviews {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.review-carousel {
+  overflow: hidden;
+  margin-top: 32px;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+.testimonial-card {
+  background: linear-gradient(160deg, #1a7e6a 0%, #1a6e5e 100%);
+  border-radius: 14px;
+  padding: 32px 28px;
+  min-width: 360px;
+  max-width: 360px;
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+}
+.testimonial-card .review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.testimonial-card .reviewer-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+.testimonial-card .reviewer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.testimonial-card .stars {
+  color: #f4b740;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.testimonial-card .review-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+  margin-bottom: 16px;
+}
+.testimonial-card .review-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.92);
+  font-style: normal;
+}
+
+/* ===== TREATMENT ITEMS ===== */
+.treatment-list { margin-top: 24px; }
+.treatment-item {
+  padding: 22px 0;
+  border-bottom: 1px solid #eef2f0;
+}
+.treatment-item h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+.treatment-item p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #1a5c5a;
+  padding: 56px 60px 32px;
+  color: rgba(255,255,255,0.65);
+}
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-col h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.footer-col p, .footer-col a {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  display: block;
+}
+.footer-col a:hover { color: var(--teal-light); }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ===== HAMBURGER MENU ===== */
+.mobile-close-btn { display: none; }
+.hamburger {
+  display: none;
+  background: none;
+  border: 2px solid var(--teal);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 10px 9px;
+  z-index: 200;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+  touch-action: manipulation;
+}
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3.5px;
+  margin: 4px 0;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+/* When menu is open, hide the hamburger button entirely — close button is inside sidebar */
+.hamburger.active { opacity: 0; pointer-events: none; }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px) {
+  /* --- Hamburger visible --- */
+  .hamburger { display: block; flex-shrink: 0; position: relative; }
+
+  /* --- Nav links become slide-out sidebar --- */
+  .nav-links {
+    display: none !important;
+    flex-direction: column !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    padding: 16px 0 32px;
+    z-index: 160;
+    gap: 0 !important;
+    overflow-y: auto;
+  }
+  /* Close button at top of sidebar */
+  .mobile-close-btn {
+    display: block !important;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 8px 20px 16px;
+    line-height: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+  }
+  .nav-links.open {
+    display: flex !important;
+  }
+  .nav-links > li {
+    border-bottom: 1px solid #eef2f0;
+  }
+  .nav-links a, .nav-links .has-dropdown {
+    padding: 14px 24px !important;
+    display: block !important;
+    font-size: 15px !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+    touch-action: manipulation;
+    position: relative;
+    z-index: 170;
+  }
+
+  /* Dropdown menus in mobile sidebar — always expanded */
+  .dropdown-menu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-top: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-width: auto !important;
+    background: #f7faf8 !important;
+    display: block !important;
+  }
+  .dropdown-menu a {
+    padding: 12px 24px 12px 40px !important;
+    font-size: 14px !important;
+  }
+  .braces-submenu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-width: auto !important;
+    background: #eef6f0 !important;
+    display: block !important;
+  }
+  .braces-submenu a {
+    padding: 10px 24px 10px 56px !important;
+    font-size: 13px !important;
+  }
+  .braces-parent-wrap { position: static !important; }
+
+  /* Mobile nav overlay */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 140;
+  }
+  .nav-overlay.active { display: block; }
+
+  /* --- Main Nav layout --- */
+  .main-nav {
+    padding: 12px 16px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  /* --- Announcement bar --- */
+  .announcement-bar {
+    padding: 10px 16px;
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center;
+  }
+  .announcement-bar p { font-size: 12px; line-height: 1.4; }
+  .announcement-bar .start-now-btn { font-size: 12px; padding: 6px 18px; }
+
+  /* --- Utility nav — stack buttons --- */
+  .utility-nav {
+    padding: 8px 16px;
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center;
+    align-items: center !important;
+  }
+  .utility-nav > div[style] {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+  .utility-nav .free-consult-btn { padding: 8px 16px !important; font-size: 12px !important; }
+  .utility-nav a[style*="padding:9px"] {
+    padding: 7px 12px !important;
+    font-size: 11px !important;
+  }
+  .utility-phone { font-size: 13px; }
+
+  /* --- Logo --- */
+  .logo-area img { height: 36px !important; width: auto !important; }
+  .logo-area div[style*="font-size:9.5px"] { font-size: 8px !important; }
+
+  /* --- Hero section (class-based homepage) --- */
+  .hero {
+    flex-direction: column !important;
+    padding: 40px 20px 48px !important;
+    text-align: center;
+  }
+  .hero h1 { font-size: 28px !important; }
+  .hero-content { max-width: 100% !important; }
+  .hero-photo { width: 240px !important; height: 280px !important; margin: 0 auto !important; }
+  .hero-photo::before { width: 220px !important; height: 220px !important; border-width: 16px !important; right: 0 !important; }
+  .hero-photo::after { width: 160px !important; height: 200px !important; right: 10px !important; }
+  .hero-photo-circle { width: 210px !important; height: 210px !important; margin-top: 24px !important; margin-left: 0 !important; }
+
+  /* --- Inner page hero sections (inline-styled) --- */
+  div[style*="display:flex"][style*="padding:70px"] {
+    flex-direction: column !important;
+    padding: 40px 20px !important;
+    text-align: center;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] {
+    max-width: 100% !important;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] h1 {
+    font-size: 26px !important;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] p[style*="font-size:22px"] {
+    font-size: 17px !important;
+  }
+
+  /* --- Inline flex containers: STACK on mobile --- */
+  div[style*="display:flex"][style*="gap:48px"],
+  div[style*="display:flex"][style*="gap:40px"],
+  div[style*="display:flex"][style*="gap:36px"],
+  div[style*="display:flex"][style*="gap:32px"],
+  div[style*="display:flex; align-items:center; justify-content:space-between"] {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  /* --- Map + hours sections --- */
+  div[style*="flex:1.3"],
+  div[style*="flex:0.7"],
+  div[style*="flex:1.2"],
+  div[style*="flex:0.8"] {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  /* --- Large heading overrides --- */
+  h1[style*="font-size:40px"],
+  h1[style*="font-size:42px"],
+  h1[style*="font-size:44px"] { font-size: 26px !important; }
+  h2[style*="font-size:36px"],
+  h2[style*="font-size:34px"],
+  h2[style*="font-size:32px"] { font-size: 22px !important; }
+  h2[style*="font-size:30px"],
+  h2[style*="font-size:28px"] { font-size: 20px !important; }
+  h3[style*="font-size:28px"],
+  h3[style*="font-size:26px"] { font-size: 18px !important; }
+  span[style*="font-size:32px"] { font-size: 24px !important; }
+
+  /* --- Badges row --- */
+  .badges-row { grid-template-columns: 1fr !important; padding: 0 16px !important; margin-top: -24px; }
+  .badge-card:first-child { border-radius: 12px 12px 0 0 !important; }
+  .badge-card:last-child { border-radius: 0 0 12px 12px !important; }
+  .badge-card { border-radius: 0 !important; }
+
+  /* --- Cards/grids — single column --- */
+  .cards-grid { grid-template-columns: 1fr !important; }
+  div[style*="grid-template-columns:repeat(3"],
+  div[style*="grid-template-columns:repeat(2"],
+  div[style*="display:grid"][style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  .testimonials-grid { grid-template-columns: 1fr !important; }
+
+  /* --- Review carousel on mobile --- */
+  .review-carousel {
+    margin-top: 20px;
+  }
+  .review-track {
+    gap: 16px !important;
+    animation-duration: 25s !important;
+  }
+  .testimonial-card {
+    min-width: 280px !important;
+    max-width: 280px !important;
+    padding: 24px 20px !important;
+  }
+  .testimonial-card .reviewer-name { font-size: 16px !important; }
+  .testimonial-card .reviewer-avatar { width: 40px !important; height: 40px !important; font-size: 17px !important; }
+  .testimonial-card .stars { font-size: 16px !important; }
+  .testimonial-card .review-text { font-size: 14px !important; line-height: 1.6 !important; }
+
+  /* --- Dr row --- */
+  .dr-row { flex-direction: column !important; text-align: center; }
+  .dr-img-placeholder { width: 100% !important; max-width: 280px; margin: 0 auto !important; }
+
+  /* --- Issues grid --- */
+  .issues-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* --- Content section padding --- */
+  .content-section { padding: 36px 16px !important; }
+  div[style*="padding:64px 60px"],
+  div[style*="padding:70px 60px"],
+  div[style*="padding:52px 60px"] {
+    padding: 36px 16px !important;
+  }
+
+  /* --- CTA banners --- */
+  .cta-banner { padding: 36px 16px !important; }
+  .cta-banner h2 { font-size: 20px !important; }
+
+  /* --- Footer --- */
+  footer { padding: 40px 16px 24px !important; }
+  .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* --- Images — scale down --- */
+  img[style*="width:280px"],
+  img[style*="width:320px"] {
+    width: 100% !important;
+    max-width: 260px !important;
+    height: auto !important;
+  }
+  img[style*="height:350px"],
+  img[style*="height:400px"] {
+    height: auto !important;
+  }
+  div[style*="width:320px"][style*="height:380px"],
+  div[style*="width:300px"][style*="height:360px"] {
+    width: 240px !important;
+    height: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  /* --- Booking iframe --- */
+  iframe[style*="height:700px"],
+  iframe[height="700"] {
+    height: 550px !important;
+  }
+
+  /* --- Review carousel --- */
+  /* review-track handled above with carousel block */
+
+  /* --- Section titles --- */
+  .section-title { font-size: 24px !important; }
+  .section-subtitle { font-size: 15px !important; }
+
+  /* --- Inline padded divs --- */
+  div[style*="padding:40px 60px"] { padding: 28px 16px !important; }
+  div[style*="padding:48px 60px"] { padding: 32px 16px !important; }
+  div[style*="padding:56px 60px"] { padding: 36px 16px !important; }
+
+  /* --- GHL chat widget --- */
+  #chat-widget-container { bottom: 8px !important; right: 8px !important; }
+}
+
+/* Extra small screens */
+@media(max-width:480px) {
+  .hero h1 { font-size: 22px !important; }
+  h1[style*="font-size"] { font-size: 22px !important; }
+  h2[style*="font-size"] { font-size: 18px !important; }
+  .hero-photo { width: 200px !important; height: 240px !important; }
+  .hero-photo-circle { width: 180px !important; height: 180px !important; }
+  .hero-photo::before { width: 180px !important; height: 180px !important; }
+  .hero-photo::after { width: 140px !important; height: 170px !important; }
+  .issues-grid { grid-template-columns: 1fr !important; }
+  .announcement-bar p { font-size: 11px; }
+  .testimonial-card { min-width: 240px !important; max-width: 240px !important; padding: 20px 16px !important; }
+  .testimonial-card .review-text { font-size: 13px !important; }
+  .badge-card { padding: 20px 16px !important; }
+  .utility-nav a[style*="padding:9px"] { font-size: 10px !important; padding: 6px 10px !important; }
+}</style>
+</head>
+<body>
+<script>
+function showPage(id){var u={'home':'/','kids':'/orthodontist-for-kids/','adults':'/orthodontist-for-adults/','invisalign':'/invisalign/','doctor':'/meet-the-doctor/','mesa':'/orthodontist-mesa-az/','phoenix':'/orthodontist-phoenix-az/','braces':'/braces-for-kids/','braces-adults':'/braces-for-adults/','braces-cost':'/braces-cost/','colored-braces':'/colored-braces/','ahcccs':'/ahcccs-no-insurance/','espanol':'/espanol/','booking':'/free-consultation/','charm':'/charm-braces/','oral-surgery':'/oral-surgery/'};location.href=u[id]||'/';}
+function toggleMobileNav(){
+  var nl=document.querySelector('.nav-links');
+  var hb=document.getElementById('hamburger');
+  var ov=document.getElementById('navOverlay');
+  if(!nl||!hb||!ov) return;
+  var opening = !nl.classList.contains('open');
+  if(opening){
+    nl.classList.add('open');
+    hb.classList.add('active');
+    ov.classList.add('active');
+    document.body.style.overflow='hidden';
+  } else {
+    closeMobileNav();
+  }
+}
+function closeMobileNav(){
+  var nl=document.querySelector('.nav-links');
+  var hb=document.getElementById('hamburger');
+  var ov=document.getElementById('navOverlay');
+  if(nl)nl.classList.remove('open');
+  if(hb)hb.classList.remove('active');
+  if(ov)ov.classList.remove('active');
+  document.body.style.overflow='';
+}
+</script>
+
+
+<!-- ===== ANNOUNCEMENT BAR — Updated #1 ===== -->
+<div class="announcement-bar">
+  <p>Free Consultation, Includes X-Rays, Full Exam, 3D Scan & Treatment Plan (a $300+ Value)</p>
+  <a href="/free-consultation/" class="start-now-btn">Start Now</a>
+</div>
+
+<!-- ===== UTILITY NAV — Updated #21 ===== -->
+<div class="utility-nav">
+  <div class="utility-phone"><span>Call or text:</span> (520) 630-2022</div>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <a href="/charm-braces/" style="background:linear-gradient(135deg,#c8a94e,#b8943e); color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">Charm Braces</a>
+    <a href="/ahcccs-no-insurance/" style="background:#c62828; color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">No Insurance</a>
+    <a href="/oral-surgery/" style="background:#0f2b4a; color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">Oral Surgery</a>
+    <a href="/free-consultation/" class="free-consult-btn">Free Consultation</a>
+  </div>
+</div>
+
+<!-- ===== MAIN NAV — Updated #22 ===== -->
+<nav class="main-nav">
+  <div class="logo-area" style="cursor:pointer;" onclick="location.href='/'">
+    <img src="data:image/jpeg;base64,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" alt="Arizona Orthodontics & Oral Surgery" style="height:44px; width:auto;"><div style="font-family:'Montserrat',sans-serif; font-size:9.5px; font-weight:700; color:#1a8a8a; letter-spacing:2.5px; text-transform:uppercase; margin-top:2px; text-align:center;">& Oral Surgery</div>
+  </div>
+  <ul class="nav-links">
+    <li style="list-style:none;border-bottom:1px solid #eef2f0;"><button class="mobile-close-btn" onclick="closeMobileNav()" aria-label="Close menu">✕</button></li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">About Us <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/meet-the-doctor/">Meet The Doctor</a>
+        <a href="/meet-the-doctor/">Testimonials</a>
+        <a href="/ahcccs-no-insurance/">AHCCCS / No Insurance</a>
+        <a href="/espanol/">Español</a>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">Services <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/orthodontist-for-kids/">Orthodontist for Kids</a>
+        <a href="/orthodontist-for-adults/">Orthodontist for Adults</a>
+        <div class="braces-parent-wrap" style="position:relative;">
+          <a href="/braces-for-kids/" style="background:var(--teal); color:#fff; font-weight:700; display:block; padding:10px 20px;">Braces ›</a>
+          <div class="braces-submenu">
+            <a href="/braces-for-kids/">Braces For Kids</a>
+            <a href="/braces-for-adults/">Braces For Adults</a>
+            <a href="/braces-cost/">Dental Braces Cost</a>
+            <a href="/colored-braces/">Colored Braces</a>
+            <a href="/charm-braces/">CHARM™ Braces</a>
+          </div>
+        </div>
+        <a href="/invisalign/">Invisalign</a>
+        <a href="/oral-surgery/">Oral Surgery</a>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">Locations <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/orthodontist-mesa-az/">Mesa Office</a>
+        <a href="/orthodontist-phoenix-az/">Phoenix Office</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
+
+
+<!-- ================================================================ -->
+<!--                        HOMEPAGE                                  -->
+<!-- ================================================================ -->
+<div class="page active" id="page-charm">
+
+  <!-- HERO -->
+  <div style="background:#f7faf8; padding:70px 60px 80px; display:flex; align-items:center; justify-content:space-between; gap:48px;">
+    <div style="flex:1; max-width:580px;">
+      <p style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--teal); margin-bottom:12px;">Now Available at Arizona Orthodontics</p>
+      <h1 style="font-family:'Montserrat',sans-serif; font-size:44px; font-weight:900; color:#0f2b4a; line-height:1.15; margin-bottom:8px;">CHARM™ Braces</h1>
+      <p style="font-family:'Montserrat',sans-serif; font-size:24px; font-weight:600; color:#0f2b4a; line-height:1.4; margin-bottom:8px;">Charm them with your smile. <span style="color:var(--teal);">Not your braces.</span></p>
+      <p style="font-size:16px; color:var(--text-body); margin-bottom:28px;">Champagne-toned braces designed for <em>confidence</em>. A beautiful, discreet alternative to traditional metal braces — now available at our Mesa and Phoenix locations.</p>
+      <a href="/free-consultation/" class="hero-btn">Schedule Your Free Consultation</a>
+    </div>
+    <div style="flex-shrink:0;">
+      <img src="data:image/jpeg;base64,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" alt="Charm Braces Clear Aligners" style="width:400px; height:380px; object-fit:cover; border-radius:20px; box-shadow:0 12px 40px rgba(0,0,0,0.1);">
+    </div>
+  </div>
+
+  <!-- 4 FEATURES -->
+  <div class="content-section">
+    <h2 class="section-title">Why Patients Love CHARM™</h2>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:32px;">
+      <div class="info-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">✨</div>
+        <h3 style="color:#0f2b4a;">Blends Naturally</h3>
+        <p>Champagne-colored braces blend seamlessly with natural teeth for a subtle, refined look.</p>
+      </div>
+      <div class="info-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">🪶</div>
+        <h3 style="color:#0f2b4a;">Ultra Smooth Comfort</h3>
+        <p>Low-profile, rounded design for all-day comfort you can count on.</p>
+      </div>
+      <div class="info-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">🎯</div>
+        <h3 style="color:#0f2b4a;">Precise Control</h3>
+        <p>Advanced patented technology for efficient, predictable results.</p>
+      </div>
+      <div class="info-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">🛡️</div>
+        <h3 style="color:#0f2b4a;">Built Strong, Made to Last</h3>
+        <p>Durable stainless steel strength with a refined, aesthetic finish.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON -->
+  <div class="content-section bg-light">
+    <div class="section-inner">
+      <h2 class="section-title" style="text-align:center;">Why People Are Switching to CHARM™</h2>
+      <div style="display:flex; gap:32px; margin-top:36px; align-items:center; justify-content:center;">
+        <!-- Traditional -->
+        <div style="flex:1; max-width:280px;">
+          <h3 style="font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-light); margin-bottom:20px; text-align:center;">Traditional Braces</h3>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="display:flex; align-items:center; gap:10px;"><span style="color:#e53e3e; font-size:16px; font-weight:700;">✕</span><span style="font-size:14.5px; color:var(--text-body);">Metallic & Noticeable</span></div>
+            <div style="display:flex; align-items:center; gap:10px;"><span style="color:#e53e3e; font-size:16px; font-weight:700;">✕</span><span style="font-size:14.5px; color:var(--text-body);">Bulky & uncomfortable</span></div>
+            <div style="display:flex; align-items:center; gap:10px;"><span style="color:#e53e3e; font-size:16px; font-weight:700;">✕</span><span style="font-size:14.5px; color:var(--text-body);">More obvious</span></div>
+            <div style="display:flex; align-items:center; gap:10px;"><span style="color:#e53e3e; font-size:16px; font-weight:700;">✕</span><span style="font-size:14.5px; color:var(--text-body);">Less aesthetic</span></div>
+          </div>
+        </div>
+        <!-- VS divider -->
+        <div style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 20px;">
+          <div style="width:2px; height:60px; background:var(--border);"></div>
+          <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:800; background:var(--teal); color:#fff; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:12px 0;">vs</div>
+          <div style="width:2px; height:60px; background:var(--border);"></div>
+        </div>
+        <!-- CHARM -->
+        <div style="flex:1; max-width:280px;">
+          <h3 style="font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--teal); margin-bottom:20px; text-align:center;">CHARM™</h3>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="display:flex; align-items:center; gap:10px;"><span style="color:var(--teal); font-size:16px; font-weight:700;">✓</span><span style="font-size:14.5px; color:var(--text-body);">Champagne-toned</span></div>
+            <div style="display:flex; align-items:center; gap:10px;"><span style="color:var(--teal); font-size:16px; font-weight:700;">✓</span><span style="font-size:14.5px; color:var(--text-body);">Smooth, low-profile</span></div>
+            <div style="display:flex; align-items:center; gap:10px;"><span style="color:var(--teal); font-size:16px; font-weight:700;">✓</span><span style="font-size:14.5px; color:var(--text-body);">Discreet & refined</span></div>
+            <div style="display:flex; align-items:center; gap:10px;"><span style="color:var(--teal); font-size:16px; font-weight:700;">✓</span><span style="font-size:14.5px; color:var(--text-body);">Beautifully natural</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIDENCE SECTION -->
+  <div class="content-section">
+    <h2 style="font-family:'Montserrat',sans-serif; font-size:36px; font-weight:800; color:#0f2b4a; line-height:1.2; margin-bottom:20px;">Confidence looks different on <span style="color:var(--teal);">you.</span></h2>
+    <div class="section-body">
+      <p>Your smile is part of what makes you stand out. CHARM™ is thoughtfully designed for those who want orthodontic treatment that feels as unique as they are. With its champagne tone and smooth, low-profile design, CHARM™ helps you smile with confidence — every step of the way.</p>
+    </div>
+  </div>
+
+  <!-- WHY CHARM -->
+  <div class="content-section bg-light">
+    <div class="section-inner">
+      <p style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--teal); margin-bottom:8px;">Why CHARM™?</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:24px;">
+        <div class="info-card" style="text-align:center;">
+          <div style="font-size:32px; margin-bottom:12px;">💎</div>
+          <h3 style="color:#0f2b4a;">Discreet & Beautiful</h3>
+          <p>Champagne finish that blends naturally with your smile.</p>
+        </div>
+        <div class="info-card" style="text-align:center;">
+          <div style="font-size:32px; margin-bottom:12px;">☁️</div>
+          <h3 style="color:#0f2b4a;">Comfort You'll Love</h3>
+          <p>Smooth low-profile design made for everyday life.</p>
+        </div>
+        <div class="info-card" style="text-align:center;">
+          <div style="font-size:32px; margin-bottom:12px;">🏆</div>
+          <h3 style="color:#0f2b4a;">Trusted by Experts</h3>
+          <p>Preferred by orthodontists for precision & results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVAILABLE AT AZ ORTHO -->
+  <div class="content-section">
+    <h2 class="section-title">CHARM™ Braces at Arizona Orthodontics</h2>
+    <div class="section-body">
+      <p>Dr. Alejandra Fernandez is proud to offer CHARM™ braces at both our Mesa and Phoenix locations. During your free consultation, she'll help you determine if CHARM™ is the right fit for your smile goals — and walk you through the cost, timeline, and what to expect.</p>
+      <br>
+      <p>Your free consultation includes digital X-rays, a full exam, an iTero 3D scan, a personalized treatment plan, and a complete financial breakdown — a $300+ value at no cost.</p>
+    </div>
+    <br>
+    <a href="/free-consultation/" class="hero-btn">Schedule Your Free Consultation</a>
+  </div>
+
+  <!-- TAGLINE BANNER -->
+  <div style="background:#0f2b4a; padding:32px 60px; text-align:center;">
+    <p style="font-family:'Montserrat',sans-serif; font-size:16px; font-weight:700; color:#fff; letter-spacing:6px; text-transform:uppercase;">Beautiful &bull; Comfortable &bull; Confidently You.</p>
+  </div>
+
+  <!-- LOCATIONS -->
+  <div class="content-section">
+    <h2 class="section-title">Find an Arizona Orthodontics Location Near You</h2>
+    <div style="display:flex; gap:0; margin-top:28px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+      <div style="flex:0 0 320px; background:#f7faf8; padding:48px 36px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <span style="color:var(--green-mid); font-size:28px;">📍</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Mesa AZ Office</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
+          <span style="color:var(--green-mid); font-size:28px;">📍</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Phoenix AZ Office</span>
+        </div>
+        <a href="/free-consultation/" class="hero-btn" style="text-align:center;">Schedule a Free Consultation</a>
+      </div>
+      <div style="flex:1; min-height:380px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d220000!2d-111.84!3d33.46!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0; display:block;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2>Schedule a Free Consultation</h2>
+    <p>Call or text: (520) 630-2022</p>
+    <a href="/free-consultation/" class="btn-white">Schedule Now</a>
+  </div>
+
+</div>
+
+<!-- ================================================================ -->
+<!--                    ORAL SURGERY                                  -->
+<!-- ================================================================ -->
+<footer>
+  <div class="footer-grid" style="grid-template-columns:1.2fr 1fr 1fr 1fr;">
+    <div class="footer-col">
+      <h4>Take the Next Step</h4>
+      <a href="/free-consultation/">Appointment Request</a>
+      <a href="/free-consultation/">Contact Us</a>
+      <a href="/orthodontist-mesa-az/">Find A Location</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="/meet-the-doctor/">Testimonials</a>
+      <a href="/orthodontist-mesa-az/">Find A Location</a>
+    </div>
+    <div class="footer-col">
+      <h4>Learn More</h4>
+      <a href="/orthodontist-for-kids/">Braces For Kids</a>
+      <a href="/braces-for-adults/">Braces For Adults</a>
+      <a href="/invisalign/">Invisalign</a>
+    </div>
+    <div class="footer-col">
+      <h4>Locations</h4>
+      <a href="/orthodontist-mesa-az/">Mesa Office</a>
+      <a href="/orthodontist-phoenix-az/">Phoenix Office</a>
+      <br>
+      <a href="#" style="font-size:12px;" onclick="return false;">Privacy Policy</a>
+      <a href="#" style="font-size:12px;" onclick="return false;">Terms & Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">Arizona Orthodontics © 2026 All Rights Reserved – Website by OrthoBoost</div>
+</footer>
+
+
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69e1577f663add2d0d04af56" data-source="WEB_USER"></script>
+
+</body>
+</html>

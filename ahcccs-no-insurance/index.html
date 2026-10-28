@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No Insurance? No Problem. | Arizona Orthodontics</title>
+<link rel="canonical" href="https://arizona-orthodontics.com/ahcccs-no-insurance/">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #0d6e6e;
+  --green-mid: #1a8a8a;
+  --green-light: #4fb8b8;
+  --teal: #3aafa9;
+  --teal-light: #6ed4c8;
+  --gold: #c8a94e;
+  --gradient-bar: linear-gradient(90deg, #1a8a8a 0%, #2ca5a5 50%, #c8a94e 100%);
+  --gradient-hero: linear-gradient(160deg, #e8f5ec 0%, #d4edda 30%, #f0f7f2 60%, #eef6f0 100%);
+  --gradient-hero-circle: linear-gradient(135deg, #1a8a8a 0%, #0d6e6e 100%);
+  --gradient-btn: linear-gradient(135deg, #1a8a8a 0%, #2ca5a5 100%);
+  --white: #ffffff;
+  --off-white: #f7faf8;
+  --text-dark: #0f2b4a;
+  --text-body: #4a5e5e;
+  --text-light: #7a8e8e;
+  --border: #dce8e0;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Open Sans',sans-serif; color:var(--text-body); background:var(--white); -webkit-font-smoothing:antialiased; }
+img { max-width:100%; }
+
+/* ===== TOP ANNOUNCEMENT BAR ===== */
+.announcement-bar {
+  background: var(--gradient-bar);
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.announcement-bar p {
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.announcement-bar .start-now-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(255,255,255,0.6);
+  color: #fff;
+  padding: 7px 24px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.announcement-bar .start-now-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ===== UTILITY NAV (phone + free consultation) ===== */
+.utility-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  border-bottom: 1px solid #eef2f0;
+}
+.utility-phone {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+.utility-phone span { color: var(--text-light); font-weight: 400; }
+.free-consult-btn {
+  background: var(--gradient-btn);
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.free-consult-btn:hover { opacity: 0.9; }
+
+/* ===== MAIN NAV ===== */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 60px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-icon {
+  width: 48px;
+  height: 48px;
+}
+.logo-icon svg { width:48px; height:48px; }
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--text-dark);
+  line-height: 1.15;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  list-style: none;
+}
+.nav-links > li {
+  position: relative;
+}
+.nav-links a {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green-mid); }
+.nav-links .has-dropdown { display:flex; align-items:center; gap:4px; }
+.dropdown-arrow { font-size:10px; }
+
+/* Dropdown menus */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  border-radius: 0 0 8px 8px;
+  min-width: 220px;
+  padding: 8px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.2s;
+  z-index: 200;
+}
+.nav-links > li:hover > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+/* Braces sub-dropdown appears to the LEFT */
+.braces-submenu {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  left: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  border-radius: 0 0 8px 8px;
+  min-width: 220px;
+  padding: 8px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  z-index: 300;
+}
+.braces-parent-wrap:hover .braces-submenu {
+  opacity: 1;
+  visibility: visible;
+}
+.braces-submenu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.braces-submenu a:hover {
+  background: var(--off-white);
+  color: var(--green-mid);
+  padding-left: 24px;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: all 0.15s;
+}
+.dropdown-menu a:hover {
+  background: var(--off-white);
+  color: var(--green-mid);
+  padding-left: 24px;
+}
+
+.page { display:none; }
+.page.active { display:block; }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--gradient-hero);
+  padding: 70px 60px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 520px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,158,111,0.08), transparent 70%);
+}
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--green-dark);
+  line-height: 1.18;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.hero-btn {
+  display: inline-block;
+  background: var(--gradient-btn);
+  color: #fff;
+  padding: 15px 36px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(45,158,111,0.25);
+}
+.hero-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(45,158,111,0.35);
+}
+.hero-sub {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+.hero-photo {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  width: 400px;
+  height: 440px;
+}
+/* Gray arc behind */
+.hero-photo::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 28px solid rgba(200, 215, 208, 0.35);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(25deg);
+  z-index: 0;
+}
+/* Teal rectangle behind photo */
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 240px;
+  height: 300px;
+  background: #1a7e6a;
+  border-radius: 12px;
+  z-index: 1;
+}
+.hero-photo-circle {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  margin-left: 10px;
+  box-shadow: 0 12px 40px rgba(26,110,78,0.15);
+}
+.hero-photo-circle .dr-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px;
+  background: var(--gradient-hero-circle);
+}
+.hero-photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+/* ===== BADGES ROW ===== */
+.badges-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  margin: -50px auto 0;
+  position: relative;
+  z-index: 3;
+  padding: 0 60px;
+}
+.badge-card {
+  background: var(--green-dark);
+  padding: 30px 28px;
+  text-align: center;
+  border: none;
+  transition: box-shadow 0.2s;
+}
+.badge-card:first-child { border-radius: 12px 0 0 12px; }
+.badge-card:last-child { border-radius: 0 12px 12px 0; }
+.badge-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+.badge-card .badge-emoji { font-size: 28px; margin-bottom: 10px; }
+.badge-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.badge-card p {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.55;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.content-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 60px;
+}
+.content-section.bg-light { background: var(--off-white); max-width:100%; }
+.content-section.bg-light .section-inner { max-width:1100px; margin:0 auto; }
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #0f2b4a;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.section-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+.section-body {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+.section-body ul {
+  margin: 16px 0 16px 22px;
+}
+.section-body li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: var(--gradient-btn);
+  padding: 52px 60px;
+  text-align: center;
+}
+.cta-banner h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.35;
+}
+.cta-banner p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 24px;
+}
+.cta-banner .btn-white {
+  display: inline-block;
+  background: #fff;
+  color: var(--green-dark);
+  padding: 14px 36px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.cta-banner .btn-white:hover { transform:translateY(-1px); }
+
+/* ===== CARDS GRID ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.info-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.info-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+.info-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+.info-card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ===== ISSUES GRID ===== */
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.issue-chip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 16px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-dark);
+  transition: all 0.2s;
+}
+.issue-chip:hover {
+  background: var(--off-white);
+  border-color: var(--green-mid);
+}
+
+/* ===== DR SECTION ===== */
+.dr-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+.dr-img-placeholder {
+  width: 280px;
+  height: 340px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--green-light), var(--teal));
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  font-weight: 500;
+}
+.dr-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 14px;
+}
+.dr-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 14px;
+}
+
+/* ===== VISIT LIST ===== */
+.visit-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+.visit-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #eef2f0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+.visit-list li .check {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+/* Testimonial carousel */
+.review-track {
+  display: flex;
+  gap: 24px;
+  animation: scrollReviews 20s linear infinite;
+  width: max-content;
+}
+.review-track:hover { animation-play-state: paused; }
+@keyframes scrollReviews {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.review-carousel {
+  overflow: hidden;
+  margin-top: 32px;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+.testimonial-card {
+  background: linear-gradient(160deg, #1a7e6a 0%, #1a6e5e 100%);
+  border-radius: 14px;
+  padding: 32px 28px;
+  min-width: 360px;
+  max-width: 360px;
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+}
+.testimonial-card .review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.testimonial-card .reviewer-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+.testimonial-card .reviewer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.testimonial-card .stars {
+  color: #f4b740;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.testimonial-card .review-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+  margin-bottom: 16px;
+}
+.testimonial-card .review-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.92);
+  font-style: normal;
+}
+
+/* ===== TREATMENT ITEMS ===== */
+.treatment-list { margin-top: 24px; }
+.treatment-item {
+  padding: 22px 0;
+  border-bottom: 1px solid #eef2f0;
+}
+.treatment-item h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+.treatment-item p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #1a5c5a;
+  padding: 56px 60px 32px;
+  color: rgba(255,255,255,0.65);
+}
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-col h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.footer-col p, .footer-col a {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  display: block;
+}
+.footer-col a:hover { color: var(--teal-light); }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ===== HAMBURGER MENU ===== */
+.mobile-close-btn { display: none; }
+.hamburger {
+  display: none;
+  background: none;
+  border: 2px solid var(--teal);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 10px 9px;
+  z-index: 200;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+  touch-action: manipulation;
+}
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3.5px;
+  margin: 4px 0;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+/* When menu is open, hide the hamburger button entirely — close button is inside sidebar */
+.hamburger.active { opacity: 0; pointer-events: none; }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px) {
+  /* --- Hamburger visible --- */
+  .hamburger { display: block; flex-shrink: 0; position: relative; }
+
+  /* --- Nav links become slide-out sidebar --- */
+  .nav-links {
+    display: none !important;
+    flex-direction: column !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    padding: 16px 0 32px;
+    z-index: 160;
+    gap: 0 !important;
+    overflow-y: auto;
+  }
+  /* Close button at top of sidebar */
+  .mobile-close-btn {
+    display: block !important;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 8px 20px 16px;
+    line-height: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+  }
+  .nav-links.open {
+    display: flex !important;
+  }
+  .nav-links > li {
+    border-bottom: 1px solid #eef2f0;
+  }
+  .nav-links a, .nav-links .has-dropdown {
+    padding: 14px 24px !important;
+    display: block !important;
+    font-size: 15px !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+    touch-action: manipulation;
+    position: relative;
+    z-index: 170;
+  }
+
+  /* Dropdown menus in mobile sidebar — always expanded */
+  .dropdown-menu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-top: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-width: auto !important;
+    background: #f7faf8 !important;
+    display: block !important;
+  }
+  .dropdown-menu a {
+    padding: 12px 24px 12px 40px !important;
+    font-size: 14px !important;
+  }
+  .braces-submenu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-width: auto !important;
+    background: #eef6f0 !important;
+    display: block !important;
+  }
+  .braces-submenu a {
+    padding: 10px 24px 10px 56px !important;
+    font-size: 13px !important;
+  }
+  .braces-parent-wrap { position: static !important; }
+
+  /* Mobile nav overlay */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 140;
+  }
+  .nav-overlay.active { display: block; }
+
+  /* --- Main Nav layout --- */
+  .main-nav {
+    padding: 12px 16px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  /* --- Announcement bar --- */
+  .announcement-bar {
+    padding: 10px 16px;
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center;
+  }
+  .announcement-bar p { font-size: 12px; line-height: 1.4; }
+  .announcement-bar .start-now-btn { font-size: 12px; padding: 6px 18px; }
+
+  /* --- Utility nav — stack buttons --- */
+  .utility-nav {
+    padding: 8px 16px;
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center;
+    align-items: center !important;
+  }
+  .utility-nav > div[style] {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+  .utility-nav .free-consult-btn { padding: 8px 16px !important; font-size: 12px !important; }
+  .utility-nav a[style*="padding:9px"] {
+    padding: 7px 12px !important;
+    font-size: 11px !important;
+  }
+  .utility-phone { font-size: 13px; }
+
+  /* --- Logo --- */
+  .logo-area img { height: 36px !important; width: auto !important; }
+  .logo-area div[style*="font-size:9.5px"] { font-size: 8px !important; }
+
+  /* --- Hero section (class-based homepage) --- */
+  .hero {
+    flex-direction: column !important;
+    padding: 40px 20px 48px !important;
+    text-align: center;
+  }
+  .hero h1 { font-size: 28px !important; }
+  .hero-content { max-width: 100% !important; }
+  .hero-photo { width: 240px !important; height: 280px !important; margin: 0 auto !important; }
+  .hero-photo::before { width: 220px !important; height: 220px !important; border-width: 16px !important; right: 0 !important; }
+  .hero-photo::after { width: 160px !important; height: 200px !important; right: 10px !important; }
+  .hero-photo-circle { width: 210px !important; height: 210px !important; margin-top: 24px !important; margin-left: 0 !important; }
+
+  /* --- Inner page hero sections (inline-styled) --- */
+  div[style*="display:flex"][style*="padding:70px"] {
+    flex-direction: column !important;
+    padding: 40px 20px !important;
+    text-align: center;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] {
+    max-width: 100% !important;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] h1 {
+    font-size: 26px !important;
+  }
+  div[style*="display:flex"][style*="padding:70px"] > div[style*="flex:1"] p[style*="font-size:22px"] {
+    font-size: 17px !important;
+  }
+
+  /* --- Inline flex containers: STACK on mobile --- */
+  div[style*="display:flex"][style*="gap:48px"],
+  div[style*="display:flex"][style*="gap:40px"],
+  div[style*="display:flex"][style*="gap:36px"],
+  div[style*="display:flex"][style*="gap:32px"],
+  div[style*="display:flex; align-items:center; justify-content:space-between"] {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  /* --- Map + hours sections --- */
+  div[style*="flex:1.3"],
+  div[style*="flex:0.7"],
+  div[style*="flex:1.2"],
+  div[style*="flex:0.8"] {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  /* --- Large heading overrides --- */
+  h1[style*="font-size:40px"],
+  h1[style*="font-size:42px"],
+  h1[style*="font-size:44px"] { font-size: 26px !important; }
+  h2[style*="font-size:36px"],
+  h2[style*="font-size:34px"],
+  h2[style*="font-size:32px"] { font-size: 22px !important; }
+  h2[style*="font-size:30px"],
+  h2[style*="font-size:28px"] { font-size: 20px !important; }
+  h3[style*="font-size:28px"],
+  h3[style*="font-size:26px"] { font-size: 18px !important; }
+  span[style*="font-size:32px"] { font-size: 24px !important; }
+
+  /* --- Badges row --- */
+  .badges-row { grid-template-columns: 1fr !important; padding: 0 16px !important; margin-top: -24px; }
+  .badge-card:first-child { border-radius: 12px 12px 0 0 !important; }
+  .badge-card:last-child { border-radius: 0 0 12px 12px !important; }
+  .badge-card { border-radius: 0 !important; }
+
+  /* --- Cards/grids — single column --- */
+  .cards-grid { grid-template-columns: 1fr !important; }
+  div[style*="grid-template-columns:repeat(3"],
+  div[style*="grid-template-columns:repeat(2"],
+  div[style*="display:grid"][style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  .testimonials-grid { grid-template-columns: 1fr !important; }
+
+  /* --- Review carousel on mobile --- */
+  .review-carousel {
+    margin-top: 20px;
+  }
+  .review-track {
+    gap: 16px !important;
+    animation-duration: 25s !important;
+  }
+  .testimonial-card {
+    min-width: 280px !important;
+    max-width: 280px !important;
+    padding: 24px 20px !important;
+  }
+  .testimonial-card .reviewer-name { font-size: 16px !important; }
+  .testimonial-card .reviewer-avatar { width: 40px !important; height: 40px !important; font-size: 17px !important; }
+  .testimonial-card .stars { font-size: 16px !important; }
+  .testimonial-card .review-text { font-size: 14px !important; line-height: 1.6 !important; }
+
+  /* --- Dr row --- */
+  .dr-row { flex-direction: column !important; text-align: center; }
+  .dr-img-placeholder { width: 100% !important; max-width: 280px; margin: 0 auto !important; }
+
+  /* --- Issues grid --- */
+  .issues-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* --- Content section padding --- */
+  .content-section { padding: 36px 16px !important; }
+  div[style*="padding:64px 60px"],
+  div[style*="padding:70px 60px"],
+  div[style*="padding:52px 60px"] {
+    padding: 36px 16px !important;
+  }
+
+  /* --- CTA banners --- */
+  .cta-banner { padding: 36px 16px !important; }
+  .cta-banner h2 { font-size: 20px !important; }
+
+  /* --- Footer --- */
+  footer { padding: 40px 16px 24px !important; }
+  .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* --- Images — scale down --- */
+  img[style*="width:280px"],
+  img[style*="width:320px"] {
+    width: 100% !important;
+    max-width: 260px !important;
+    height: auto !important;
+  }
+  img[style*="height:350px"],
+  img[style*="height:400px"] {
+    height: auto !important;
+  }
+  div[style*="width:320px"][style*="height:380px"],
+  div[style*="width:300px"][style*="height:360px"] {
+    width: 240px !important;
+    height: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  /* --- Booking iframe --- */
+  iframe[style*="height:700px"],
+  iframe[height="700"] {
+    height: 550px !important;
+  }
+
+  /* --- Review carousel --- */
+  /* review-track handled above with carousel block */
+
+  /* --- Section titles --- */
+  .section-title { font-size: 24px !important; }
+  .section-subtitle { font-size: 15px !important; }
+
+  /* --- Inline padded divs --- */
+  div[style*="padding:40px 60px"] { padding: 28px 16px !important; }
+  div[style*="padding:48px 60px"] { padding: 32px 16px !important; }
+  div[style*="padding:56px 60px"] { padding: 36px 16px !important; }
+
+  /* --- GHL chat widget --- */
+  #chat-widget-container { bottom: 8px !important; right: 8px !important; }
+}
+
+/* Extra small screens */
+@media(max-width:480px) {
+  .hero h1 { font-size: 22px !important; }
+  h1[style*="font-size"] { font-size: 22px !important; }
+  h2[style*="font-size"] { font-size: 18px !important; }
+  .hero-photo { width: 200px !important; height: 240px !important; }
+  .hero-photo-circle { width: 180px !important; height: 180px !important; }
+  .hero-photo::before { width: 180px !important; height: 180px !important; }
+  .hero-photo::after { width: 140px !important; height: 170px !important; }
+  .issues-grid { grid-template-columns: 1fr !important; }
+  .announcement-bar p { font-size: 11px; }
+  .testimonial-card { min-width: 240px !important; max-width: 240px !important; padding: 20px 16px !important; }
+  .testimonial-card .review-text { font-size: 13px !important; }
+  .badge-card { padding: 20px 16px !important; }
+  .utility-nav a[style*="padding:9px"] { font-size: 10px !important; padding: 6px 10px !important; }
+}</style>
+</head>
+<body>
+<script>
+function showPage(id){var u={'home':'/','kids':'/orthodontist-for-kids/','adults':'/orthodontist-for-adults/','invisalign':'/invisalign/','doctor':'/meet-the-doctor/','mesa':'/orthodontist-mesa-az/','phoenix':'/orthodontist-phoenix-az/','braces':'/braces-for-kids/','braces-adults':'/braces-for-adults/','braces-cost':'/braces-cost/','colored-braces':'/colored-braces/','ahcccs':'/ahcccs-no-insurance/','espanol':'/espanol/','booking':'/free-consultation/','charm':'/charm-braces/','oral-surgery':'/oral-surgery/'};location.href=u[id]||'/';}
+function toggleMobileNav(){
+  var nl=document.querySelector('.nav-links');
+  var hb=document.getElementById('hamburger');
+  var ov=document.getElementById('navOverlay');
+  if(!nl||!hb||!ov) return;
+  var opening = !nl.classList.contains('open');
+  if(opening){
+    nl.classList.add('open');
+    hb.classList.add('active');
+    ov.classList.add('active');
+    document.body.style.overflow='hidden';
+  } else {
+    closeMobileNav();
+  }
+}
+function closeMobileNav(){
+  var nl=document.querySelector('.nav-links');
+  var hb=document.getElementById('hamburger');
+  var ov=document.getElementById('navOverlay');
+  if(nl)nl.classList.remove('open');
+  if(hb)hb.classList.remove('active');
+  if(ov)ov.classList.remove('active');
+  document.body.style.overflow='';
+}
+</script>
+
+
+<!-- ===== ANNOUNCEMENT BAR — Updated #1 ===== -->
+<div class="announcement-bar">
+  <p>Free Consultation, Includes X-Rays, Full Exam, 3D Scan & Treatment Plan (a $300+ Value)</p>
+  <a href="/free-consultation/" class="start-now-btn">Start Now</a>
+</div>
+
+<!-- ===== UTILITY NAV — Updated #21 ===== -->
+<div class="utility-nav">
+  <div class="utility-phone"><span>Call or text:</span> (520) 630-2022</div>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <a href="/charm-braces/" style="background:linear-gradient(135deg,#c8a94e,#b8943e); color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">Charm Braces</a>
+    <a href="/ahcccs-no-insurance/" style="background:#c62828; color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">No Insurance</a>
+    <a href="/oral-surgery/" style="background:#0f2b4a; color:#fff; padding:9px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap;">Oral Surgery</a>
+    <a href="/free-consultation/" class="free-consult-btn">Free Consultation</a>
+  </div>
+</div>
+
+<!-- ===== MAIN NAV — Updated #22 ===== -->
+<nav class="main-nav">
+  <div class="logo-area" style="cursor:pointer;" onclick="location.href='/'">
+    <img src="data:image/jpeg;base64,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" alt="Arizona Orthodontics & Oral Surgery" style="height:44px; width:auto;"><div style="font-family:'Montserrat',sans-serif; font-size:9.5px; font-weight:700; color:#1a8a8a; letter-spacing:2.5px; text-transform:uppercase; margin-top:2px; text-align:center;">& Oral Surgery</div>
+  </div>
+  <ul class="nav-links">
+    <li style="list-style:none;border-bottom:1px solid #eef2f0;"><button class="mobile-close-btn" onclick="closeMobileNav()" aria-label="Close menu">✕</button></li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">About Us <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/meet-the-doctor/">Meet The Doctor</a>
+        <a href="/meet-the-doctor/">Testimonials</a>
+        <a href="/ahcccs-no-insurance/">AHCCCS / No Insurance</a>
+        <a href="/espanol/">Español</a>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">Services <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/orthodontist-for-kids/">Orthodontist for Kids</a>
+        <a href="/orthodontist-for-adults/">Orthodontist for Adults</a>
+        <div class="braces-parent-wrap" style="position:relative;">
+          <a href="/braces-for-kids/" style="background:var(--teal); color:#fff; font-weight:700; display:block; padding:10px 20px;">Braces ›</a>
+          <div class="braces-submenu">
+            <a href="/braces-for-kids/">Braces For Kids</a>
+            <a href="/braces-for-adults/">Braces For Adults</a>
+            <a href="/braces-cost/">Dental Braces Cost</a>
+            <a href="/colored-braces/">Colored Braces</a>
+            <a href="/charm-braces/">CHARM™ Braces</a>
+          </div>
+        </div>
+        <a href="/invisalign/">Invisalign</a>
+        <a href="/oral-surgery/">Oral Surgery</a>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="has-dropdown">Locations <span class="dropdown-arrow">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="/orthodontist-mesa-az/">Mesa Office</a>
+        <a href="/orthodontist-phoenix-az/">Phoenix Office</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
+
+
+<!-- ================================================================ -->
+<!--                        HOMEPAGE                                  -->
+<!-- ================================================================ -->
+<div class="page active" id="page-ahcccs">
+
+  <div style="background:#f7faf8; padding:70px 60px 80px;">
+    <div style="max-width:800px;">
+      <h1 style="font-family:'Montserrat',sans-serif; font-size:40px; font-weight:800; color:#0f2b4a; line-height:1.2; margin-bottom:8px;">No Insurance? No Problem.</h1>
+      <h2 style="font-family:'Montserrat',sans-serif; font-size:22px; font-weight:700; color:var(--green-dark); line-height:1.35; margin-bottom:20px;">AHCCCS Patients Welcome at Arizona Orthodontics</h2>
+      <p style="font-size:15.5px; line-height:1.8; color:var(--text-body); margin-bottom:12px;">At Arizona Orthodontics, we believe everyone deserves a confident, healthy smile — regardless of their insurance situation. Whether you have AHCCCS, private insurance, or no insurance at all, we have affordable options designed to work for you. While we don't accept AHCCCS insurance directly, AHCCCS patients are always welcome — we offer flexible payment plans and financing so everyone can access quality care.</p>
+      <p style="font-size:15.5px; line-height:1.8; color:var(--text-body); margin-bottom:28px;">Your first consultation is completely free — including X-rays, a full exam with Dr. Fernandez, an iTero 3D scan, and a personalized treatment plan. No cost. No obligation. Just the answers you need.</p>
+      <a href="/free-consultation/" class="hero-btn">Schedule Your Free Consultation</a>
+    
+<div style="text-align:center;padding:20px 60px 0">
+  <img src="data:image/jpeg;base64,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" alt="AHCCCS Orthodontics Arizona" style="width:280px;height:auto;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.10)">
+</div></div>
+  </div>
+
+  <div class="content-section">
+    <h2 class="section-title">AHCCCS Patients Are Welcome</h2>
+    <div class="section-body">
+      <p>Have AHCCCS? You're welcome here. While we don't accept AHCCCS insurance directly, we have affordable options specifically designed so AHCCCS patients can still receive quality orthodontic care.</p>
+      <br>
+      <p>During your free consultation, our treatment coordinator will walk you through every payment option available to you — including flexible in-house financing with no credit check required. No surprises, no pressure.</p>
+    </div>
+
+    <h2 class="section-title" style="margin-top:48px;">Pacientes de AHCCCS Son Bienvenidos</h2>
+    <div class="section-body">
+      <p>¿Tiene AHCCCS? Es bienvenido aquí. Aunque no aceptamos el seguro AHCCCS directamente, tenemos opciones accesibles diseñadas específicamente para que los pacientes de AHCCCS puedan recibir atención ortodóntica de calidad.</p>
+      <br>
+      <p>Durante su consulta gratis, nuestra coordinadora de tratamiento le explicará todas las opciones de pago disponibles — incluyendo financiamiento flexible sin verificación de crédito. Sin sorpresas, sin presión. Hablamos Español.</p>
+    </div>
+  </div>
+
+  <div class="content-section bg-light">
+    <div class="section-inner">
+      <h2 class="section-title">No Insurance? Here's How We Help</h2>
+      <div class="section-body">
+        <p>Don't have insurance? That shouldn't stop you from getting the smile you deserve. At Arizona Orthodontics, we offer multiple ways to make treatment affordable:</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:28px;">
+        <div class="info-card">
+          <h3>Flexible Payment Plans</h3>
+          <p>We offer in-house financing with affordable monthly payments. No third-party lenders, no credit checks, no hassle.</p>
+        </div>
+        <div class="info-card">
+          <h3>Free Consultation — A $300+ Value</h3>
+          <p>Your first visit includes everything — digital X-rays, full exam, iTero 3D scan, treatment plan, and financial breakdown — at absolutely no cost.</p>
+        </div>
+        <div class="info-card">
+          <h3>Same-Day Start Available</h3>
+          <p>Start treatment the same day as your consultation and receive an EXTRA 5% OFF your total treatment cost — no second appointment needed!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2 class="section-title">What Your Free Consultation Includes</h2>
+    <div class="section-body">
+      <ul>
+        <li>Panoramic & digital X-rays</li>
+        <li>Comprehensive orthodontic exam with Dr. Alejandra Fernandez</li>
+        <li>iTero 3D digital scan (no messy impressions)</li>
+        <li>Personalized treatment plan for braces or Invisalign</li>
+        <li>Complete financial breakdown with insurance verification and payment options</li>
+        <li>Our treatment coordinator walks you through every cost — no surprises</li>
+      </ul>
+      <br>
+      <p>Most offices charge $200–$350 for this. We charge $0.</p>
+    </div>
+  </div>
+
+  <div class="content-section bg-light">
+    <div class="section-inner">
+      <h2 class="section-title">Two Treatment Options to Fit Your Life</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:28px;">
+        <div class="info-card">
+          <h3>Traditional Metal Braces</h3>
+          <p>The most reliable and cost-effective option for patients of all ages. Today's braces are smaller, smoother, and more comfortable than ever.</p>
+        </div>
+        <div class="info-card">
+          <h3>Invisalign</h3>
+          <p>Virtually invisible, fully removable aligners designed to fit your lifestyle. Dr. Fernandez uses iTero 3D scanning to map your entire treatment from day one.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Everyone Deserves a Confident Smile</h2>
+    <p>AHCCCS patients welcome | Affordable options for everyone | Se habla Español</p>
+    <a href="/free-consultation/" class="btn-white">Schedule Your Free Consultation</a>
+  </div>
+
+  <div class="content-section">
+    <h2 class="section-title">Find an Arizona Orthodontics Location Near You</h2>
+    <div style="display:flex; gap:0; margin-top:28px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+      <div style="flex:0 0 320px; background:#f7faf8; padding:48px 36px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <span style="color:var(--green-mid); font-size:28px;">📍</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Mesa AZ Office</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
+          <span style="color:var(--green-mid); font-size:28px;">📍</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:600; color:var(--text-dark);">Phoenix AZ Office</span>
+        </div>
+        <a href="/free-consultation/" class="hero-btn" style="text-align:center;">Schedule a Free Consultation</a>
+      </div>
+      <div style="flex:1; min-height:380px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d220000!2d-111.84!3d33.46!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0; display:block;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Schedule a Free Consultation</h2>
+    <p>Call or text: (520) 630-2022</p>
+    <a href="/free-consultation/" class="btn-white">Schedule Now</a>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!--                    ESPAÑOL / SPANISH                             -->
+<!-- ================================================================ -->
+<footer>
+  <div class="footer-grid" style="grid-template-columns:1.2fr 1fr 1fr 1fr;">
+    <div class="footer-col">
+      <h4>Take the Next Step</h4>
+      <a href="/free-consultation/">Appointment Request</a>
+      <a href="/free-consultation/">Contact Us</a>
+      <a href="/orthodontist-mesa-az/">Find A Location</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="/meet-the-doctor/">Testimonials</a>
+      <a href="/orthodontist-mesa-az/">Find A Location</a>
+    </div>
+    <div class="footer-col">
+      <h4>Learn More</h4>
+      <a href="/orthodontist-for-kids/">Braces For Kids</a>
+      <a href="/braces-for-adults/">Braces For Adults</a>
+      <a href="/invisalign/">Invisalign</a>
+    </div>
+    <div class="footer-col">
+      <h4>Locations</h4>
+      <a href="/orthodontist-mesa-az/">Mesa Office</a>
+      <a href="/orthodontist-phoenix-az/">Phoenix Office</a>
+      <br>
+      <a href="#" style="font-size:12px;" onclick="return false;">Privacy Policy</a>
+      <a href="#" style="font-size:12px;" onclick="return false;">Terms & Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">Arizona Orthodontics © 2026 All Rights Reserved – Website by OrthoBoost</div>
+</footer>
+
+
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69e1577f663add2d0d04af56" data-source="WEB_USER"></script>
+
+</body>
+</html>
